@@ -8,6 +8,12 @@ npm install -g scaffold-it
 scaffold-it /Users/me/my-scaffold/template /Users/me/my-new-git-repo
 ```
 
+Paths are required to be absolute paths. You can use `$(pwd)` to build them:
+
+```bash
+scaffold-it $(pwd)/template $(pwd)/../output
+```
+
 The `source` should be a directory with you scaffolding. It must contain a `template-variables.json` file at its root.
 The prompts for generating the questions required for the scaffolding will be created from `template-variables.json`.
 
