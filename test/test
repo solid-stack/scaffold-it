@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+./index.js $(pwd)/test/template $(pwd)/test/output

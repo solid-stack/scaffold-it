@@ -28,3 +28,7 @@ Template variables can be used within files or in file names.
 After running the command and filling out the prompts, your new project will be at `destination`. `template-variables.json`
 will be at the root of your project, and you can use that file to double check the variables that were used to create
 your project.
+
+## Tests
+
+`npm test` will prompt and then generate to `./test/output`.
