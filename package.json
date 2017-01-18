@@ -25,6 +25,6 @@
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "inquirer": "^2.0.0",
-    "scaffold-generator": "^1.1.0"
+    "scaffold-generator": "git@github.com:pajtai/node-scaffold-generator.git#e6ccc37441e609d8e3cfb3b865f6b9e3a26523bb"
   }
 }
