@@ -12,7 +12,7 @@ const version = require('./package.json').version;
 program
     .version(version)
     .option('-o, --override', 'Override any existing files')
-    .arguments('<source> <destination>', '"source" is the path to a git repo, "destination" is the path to a "template" dir' )
+    .arguments('<source> <destination>', '"source" is the path to a directory with a template directory in it, "destination" is the path where you want it to build' )
     .action(action);
 
 function action(source, destination) {
