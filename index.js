@@ -52,7 +52,8 @@ function action(source, destination) {
                     data: answers,
                     open: '{{{%',
                     close: '%}}}',
-                    override: program.override
+                    override: program.override,
+                    noBackup: program.override
                 })
                 .copy(tplDir, destination, err => {
 
