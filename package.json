@@ -16,6 +16,9 @@
   ],
   "homepage": "https://github.com/solid-stack/scaffold-it",
   "author": "Peter Ajtai <peter.ajtai@soliddigital.com>",
+  "contributors": [
+      "Cole Hafner <cole.hafner@soliddigital.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/solid-stack/scaffold-it.git"
