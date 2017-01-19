@@ -4,7 +4,7 @@ Usage:
 
 ```bash
 npm install -g scaffold-it
-# scaffold-it <source> <destionation>
+# scaffold-it <source> <destination>
 scaffold-it /Users/me/my-scaffold/template /Users/me/my-new-git-repo
 ```
 
@@ -34,6 +34,39 @@ Template variables can be used within files or in file names.
 After running the command and filling out the prompts, your new project will be at `destination`. `template-variables.json`
 will be at the root of your project, and you can use that file to double check the variables that were used to create
 your project.
+
+## Hooks
+Your template can contain hook files that can run arbitraty commands both before and 
+after the scaffold. There are two types of hooks:
+
+Pre: 
+- Runs: right before the scaffold process
+- File Name: pre.hook
+
+Post: 
+- Runs: Right after the scaffold process.
+- File Name: post.hook
+
+Both hooks should be located in the hooks directory and receive the a 
+JSON.stringified version of the template variables and their values as the first
+argument.
+ 
+## Directory Structure
+```
+project
+|  README.md
+|  package.json
+|__template
+   | template-variables.json
+   | <other template files>
+|__hooks
+   | pre.hook
+   | post.hook
+```
+
+README.md, package.json, and hooks directory are not required for the template to 
+run successfully.
+
 
 ## Tests
 
