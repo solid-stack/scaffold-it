@@ -14,17 +14,20 @@
     "generator",
     "templating"
   ],
-  "homepage": "https://github.com/pajtai/scaffold-it",
+  "homepage": "https://github.com/solid-stack/scaffold-it",
   "author": "Peter Ajtai <peter.ajtai@soliddigital.com>",
+  "contributors": [
+      "Cole Hafner <cole.hafner@soliddigital.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pajtai/scaffold-it.git"
+    "url": "https://github.com/solid-stack/scaffold-it.git"
   },
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "inquirer": "^2.0.0",
-    "scaffold-generator": "git@github.com:pajtai/node-scaffold-generator.git#e6ccc37441e609d8e3cfb3b865f6b9e3a26523bb"
+    "scaffold-generator": "^1.1.2"
   }
 }
