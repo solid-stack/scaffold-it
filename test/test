@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-./index.js $(pwd)/test/template $(pwd)/test/output
+./scaffolder.js template $(pwd)/test/scaffold $(pwd)/test/output

@@ -35,6 +35,14 @@ After running the command and filling out the prompts, your new project will be 
 will be at the root of your project, and you can use that file to double check the variables that were used to create
 your project.
 
+## Options
+
+`scaffold-it -h` will show all these options.
+
+* `-o, --override` - Override any existing files.
+* `-p, --open` - Open template characters, Defaults to `{{{%`
+* `-c, --close` - Close template characters. Defaults to `%}}}`
+
 ## Hooks
 Your template can contain hook files that can run arbitraty commands both before and 
 after the scaffold. There are two types of hooks:

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rm -r ../output && echo "deleted output" || echo "did not delete output"

@@ -3,30 +3,33 @@
 'use strict';
 
 const chalk = require('chalk');
+const execSync = require('child_process').execSync;
+const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 const program = require('commander');
 const scaffold = require('scaffold-generator');
 const version = require('./package.json').version;
-const fs = require('fs');
-const execSync = require('child_process').execSync;
 
 program
     .version(version)
     .option('-o, --override', 'Override any existing files')
-    .arguments('<source> <destination>', '"source" is the path to the dir containing the template and hooks dirs, "destination" is the desired location of the project')
+    .option('-p, --open', 'Open template characters, Defaults to {{{%')
+    .option('-c, --close', 'Close template characters. Defaults to %}}}')
+    // .arguments('<source> <destination>', '"source" is the path to the dir containing the template and hooks dirs, "destination" is the desired location of the project')
     .action(action);
 
 function action(source, destination) {
 
     let hooksDir = path.join(source, "hooks");
     let tplDir = path.join(source, "template");
-    let hooks = {
+    const hooks = {
         pre: 'pre.hook',
         post: 'post.hook'
     };
 
     const variables = require(path.join(tplDir, 'template-variables.json'));
+
     let questions = [];
     for (let key of Object.keys(variables)) {
         questions.push({
@@ -49,12 +52,12 @@ function action(source, destination) {
             runHook(preHook, source, answers);
 
             scaffold({
-                    data: answers,
-                    open: '{{{%',
-                    close: '%}}}',
-                    override: program.override,
-                    noBackup: program.override
-                })
+                data: answers,
+                open: program.open || '{{{%',
+                close: program.close || '%}}}',
+                override: program.override,
+                noBackup: program.override
+            })
                 .copy(tplDir, destination, err => {
 
                     if (err) {
@@ -75,10 +78,13 @@ function action(source, destination) {
 
 
 function runHook(hook, cwd, answers) {
+    console.log(chalk.yellow(`Looking for hook ${hook}`));
     if (!fs.existsSync(hook)) {
+        console.log(chalk.yellow('No such hook'));
         return false;
     }
 
+    console.log(chalk.yellow('Running hoook'));
     let cmd = `${hook} ${JSON.stringify(answers)}`;
     execSync(cmd, {cwd: cwd, stdio: 'inherit'});
 
@@ -89,7 +95,7 @@ program.on('--help', function(){
     console.log(chalk.blue('  Notes:'));
     console.log('');
     console.log(chalk.blue('Requires node 6+'));
-    console.log(chalk.blue('The template delimiters are {{{% and %}}}'));
+    console.log(chalk.blue('The default template delimiters are {{{% and %}}}'));
     console.log('');
 });
 
