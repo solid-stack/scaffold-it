@@ -9,10 +9,8 @@ const inquirer = require('inquirer');
 const path = require('path');
 const program = require('commander');
 const scaffold = require('scaffold-generator');
-const version = require('./package.json').version;
 
 program
-    .version(version)
     .option('-o, --override', 'Override any existing files')
     .option('-p, --open [value]', 'Open template characters, Defaults to {{{%')
     .option('-c, --close [value]', 'Close template characters. Defaults to %}}}')
@@ -90,15 +88,6 @@ function runHook(hook, cwd, answers) {
     execSync(cmd, {cwd: cwd, stdio: 'inherit'});
 
 }
-
-
-program.on('--help', function(){
-    console.log(chalk.blue('  Notes:'));
-    console.log('');
-    console.log(chalk.blue('Requires node 6+'));
-    console.log(chalk.blue('The default template delimiters are {{{% and %}}}'));
-    console.log('');
-});
 
 program.parse(process.argv);
 
