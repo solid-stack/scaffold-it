@@ -14,9 +14,9 @@ const version = require('./package.json').version;
 program
     .version(version)
     .option('-o, --override', 'Override any existing files')
-    .option('-p, --open', 'Open template characters, Defaults to {{{%')
-    .option('-c, --close', 'Close template characters. Defaults to %}}}')
-    // .arguments('<source> <destination>', '"source" is the path to the dir containing the template and hooks dirs, "destination" is the desired location of the project')
+    .option('-p, --open [value]', 'Open template characters, Defaults to {{{%')
+    .option('-c, --close [value]', 'Close template characters. Defaults to %}}}')
+    .arguments('<source> <destination>', '"source" is the path to the dir containing the template and hooks dirs, "destination" is the desired location of the project')
     .action(action);
 
 function action(source, destination) {
@@ -51,6 +51,7 @@ function action(source, destination) {
             let preHook = path.join(hooksDir, hooks.pre);
             runHook(preHook, source, answers);
 
+            console.log('open', program.open);
             scaffold({
                 data: answers,
                 open: program.open || '{{{%',

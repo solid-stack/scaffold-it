@@ -13,11 +13,8 @@ const version = require('./package.json').version;
 
 program
     .version(version)
-    .command('install [endpoint]', 'Install a template from a git endpoint')
-    .command('template [source] [destination]', 'Run the templating program')
-    .option('-o, --override', 'Override any existing files')
-    .option('-p, --open', 'Open template characters, Defaults to {{{%')
-    .option('-c, --close', 'Close template characters. Defaults to %}}}')
+    .command('install', 'Install a template from a git endpoint')
+    .command('template', 'Run the templating program', {isDefault: true});
 
 program.on('--help', function(){
     console.log(chalk.blue('  Notes:'));
