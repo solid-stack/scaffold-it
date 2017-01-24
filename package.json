@@ -2,9 +2,9 @@
   "name": "scaffold-it",
   "version": "1.1.0",
   "description": "A simple prompt based way to generate your projects from a file scaffolding.",
-  "main": "scaffolder.js",
+  "main": "scaffolder-it.js",
   "bin": {
-    "scaffold-it": "./index.js"
+    "scaffold-it": "./scaffold-it.js"
   },
   "scripts": {
     "test": "test/test"
