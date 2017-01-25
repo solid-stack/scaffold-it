@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-./scaffold-it.js template $(pwd)/test/scaffold $(pwd)/test/output
+rm -r ./test/output
+./scaffold-it install git@github.com:pajtai/scaffold-it-example.git
+./scaffold-it template scaffold-it-example ./test/output

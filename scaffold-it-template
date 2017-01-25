@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const execSync = require('child_process').execSync;
 const fs = require('fs');
 const inquirer = require('inquirer');
+const os = require('os');
 const path = require('path');
 const program = require('commander');
 const scaffold = require('scaffold-generator');
@@ -14,19 +15,20 @@ program
     .option('-o, --override', 'Override any existing files')
     .option('-p, --open [value]', 'Open template characters, Defaults to {{{%')
     .option('-c, --close [value]', 'Close template characters. Defaults to %}}}')
-    .arguments('<source> <destination>', '"source" is the path to the dir containing the template and hooks dirs, "destination" is the desired location of the project')
     .action(action);
 
-function action(source, destination) {
+function action(templateName, desiredDestination) {
 
-    let hooksDir = path.join(source, "hooks");
-    let tplDir = path.join(source, "template");
+    const destination = path.resolve(desiredDestination);
+    const source = path.join(os.homedir(), '.scaffold-it', templateName);
+    const hooksDir = path.join(source, "hooks");
+    const tplDir = path.join(source, "template");
+    const variables = require(path.join(tplDir, 'template-variables.json'));
+
     const hooks = {
         pre: 'pre.hook',
         post: 'post.hook'
     };
-
-    const variables = require(path.join(tplDir, 'template-variables.json'));
 
     let questions = [];
     for (let key of Object.keys(variables)) {
@@ -49,7 +51,6 @@ function action(source, destination) {
             let preHook = path.join(hooksDir, hooks.pre);
             runHook(preHook, source, answers);
 
-            console.log('open', program.open);
             scaffold({
                 data: answers,
                 open: program.open || '{{{%',

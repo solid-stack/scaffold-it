@@ -10,9 +10,7 @@ const os = require('os');
 const path = require('path');
 const program = require('commander');
 
-
 program
-    .arguments('<source>', '"source" is the git endpoint to clone, it will be put int ~/.scaffold-it')
     .action(action);
 
 function action(source) {
@@ -21,9 +19,12 @@ function action(source) {
     mkdirp.sync(templatesDir);
     console.log(chalk.yellow(`Templates are in ${templatesDir}`));
     console.log(chalk.green(`Cloning ${source}`));
-    // TODO: check if dir is empty
-    execSync(`git clone ${source}`, { stdio:'inherit', cwd: templatesDir });
+    // TODO: check if dir is empty and optionally name the template
+    try {
+        execSync(`git clone ${source}`, { stdio:'inherit', cwd: templatesDir });
+    } catch (e) {
+        console.log(chalk.red(e));
+    }
 }
 
 program.parse(process.argv);
-
