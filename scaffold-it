@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+'use strict';
+
+const chalk = require('chalk');
+const program = require('commander');
+const version = require('./package.json').version;
+
+program
+    .version(version)
+    .command('install <source>', 'Install a template from a git endpoint')
+    .command('list', 'List all installed template')
+    .command('template <template-name> <destination>', 'Run the templating program')
+    .parse(process.argv);
+
+// program.on('--help', function(){
+//     console.log(chalk.blue('  Notes:'));
+//     console.log('');
+//     console.log(chalk.blue('Requires node 6+'));
+//     console.log('');
+// });
+
+

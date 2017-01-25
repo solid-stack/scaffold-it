@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const chalk = require('chalk');
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+const os = require('os');
+const path = require('path');
+
+    const templatesDir = path.join(os.homedir(), '.scaffold-it');
+    mkdirp.sync(templatesDir);
+
+    console.log(chalk.yellow(`Templates are in ${templatesDir}`));
+    console.log(chalk.yellow('Installed templates:\n'));
+    getDirs(templatesDir)
+        .forEach(pathToDir => {
+            console.log(chalk.green(path.basename(pathToDir)));
+        });
+
+    console.log('\n');
+
+function getDirs(pathToDir) {
+    return fs.readdirSync(pathToDir)
+        .filter(file =>
+            fs.statSync(path.join(pathToDir, file)).isDirectory());
+}
+

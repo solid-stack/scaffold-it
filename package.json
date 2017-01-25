@@ -1,10 +1,10 @@
 {
   "name": "scaffold-it",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A simple prompt based way to generate your projects from a file scaffolding.",
-  "main": "index.js",
+  "main": "scaffold-it",
   "bin": {
-    "scaffold-it": "./index.js"
+    "scaffold-it": "./scaffold-it"
   },
   "scripts": {
     "test": "test/test"
@@ -17,7 +17,7 @@
   "homepage": "https://github.com/solid-stack/scaffold-it",
   "author": "Peter Ajtai <peter.ajtai@soliddigital.com>",
   "contributors": [
-      "Cole Hafner <cole.hafner@soliddigital.com>"
+    "Cole Hafner <cole.hafner@soliddigital.com>"
   ],
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "inquirer": "^2.0.0",
+    "mkdirp": "^0.5.1",
     "scaffold-generator": "^1.1.2"
   }
 }
