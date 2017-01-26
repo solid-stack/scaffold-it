@@ -9,7 +9,7 @@ program
     .version(version)
     .command('install <source>', 'Install a template from a git endpoint')
     .command('list', 'List all installed template')
-    .command('template <template-name> <destination>', 'Run the templating program')
+    .command('template <template-name> <destination>', 'Run the templating program', {isDefault: true})
     .parse(process.argv);
 
 // program.on('--help', function(){

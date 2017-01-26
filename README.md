@@ -28,6 +28,10 @@ Will show all installed templates.
 
 `scaffold-it template [options] <template-name> <destination>`
 
+This is also the default command, so `template` can be left out:
+
+`scaffold-it [options] <template-name> <destination>`
+
 The `destination` is where your scaffolding will be templated to. It can be a relative or absolute path.
 
 #### Options
