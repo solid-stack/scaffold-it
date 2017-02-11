@@ -10,13 +10,5 @@ program
     .command('install <source>', 'Install a template from a git endpoint')
     .command('list', 'List all installed template')
     .command('template <template-name> <destination>', 'Run the templating program', {isDefault: true})
+    .command('update <template-name>', 'Update a template by doing a pull')
     .parse(process.argv);
-
-// program.on('--help', function(){
-//     console.log(chalk.blue('  Notes:'));
-//     console.log('');
-//     console.log(chalk.blue('Requires node 6+'));
-//     console.log('');
-// });
-
-

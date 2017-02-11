@@ -40,6 +40,13 @@ The `destination` is where your scaffolding will be templated to. It can be a re
 * `-p, --open` - Open template characters, Defaults to `{{{%`
 * `-c, --close` - Close template characters. Defaults to `%}}}`
 
+### update
+
+`scaffold-it update <template-name>`
+
+Update the named template with a git pull from origin.
+
+
 #### Template Directory Structure
 ```
 project
