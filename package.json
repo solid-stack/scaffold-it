@@ -1,6 +1,6 @@
 {
   "name": "scaffold-it",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A simple prompt based way to generate your projects from a file scaffolding.",
   "main": "scaffold-it",
   "bin": {

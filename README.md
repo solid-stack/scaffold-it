@@ -97,6 +97,17 @@ Post:
 Both hooks should be located in the hooks directory and receive the a 
 JSON.stringified version of the template variables and their values as the first
 argument.
+
+#### Glob ignore
+
+If you wish to ignore certain glob patterns for templating, then include a `globeignore.js` file in the root of your template project.
+This file can export a string or array of strings. For example if you want to do an `npm install` in the pre hook, but not template the node_modules then you would do:
+
+```javascript
+module.exports = 'node_modules/**';
+```
+
+Any ignored files will not be copied into the templated site.
  
 ### Tests
 
