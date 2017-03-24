@@ -37,7 +37,7 @@ function action(templateName, desiredDestination) {
         questions.push({
             type : 'input',
             name : key,
-            message: key
+            message: key + (variables[key].description ? ` - ${variables[key].description}` : '')
         })
     }
 

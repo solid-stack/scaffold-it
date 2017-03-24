@@ -26,7 +26,7 @@ Will show all installed templates.
 
 ### template
 
-`scaffold-it template [options] <template-name> <destination>`
+`scaffold-it [options] template <template-name> <destination>`
 
 This is also the default command, so `template` can be left out:
 
@@ -72,9 +72,16 @@ A sample `template-variables.json`:
 
 ```json
 {
-    "project_name" : "{{{%= project_name %}}}"
+    "project_name" : "{{{%= project_name %}}}",
+    "project_slug": {
+        "description": "Used as the staging subdomain",
+        "value" : "{{{%= project_slug %}}}"
+    }
 }
 ```
+
+The questions are created from the keys of `template-variables.json`. If the value has a `description` field, then the
+description will be concatenated.
 
 Template variables can be used within files or in file names.
 
