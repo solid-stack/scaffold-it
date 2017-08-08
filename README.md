@@ -96,10 +96,12 @@ after the scaffold. There are two types of hooks:
 Pre: 
 - Runs: right before the scaffold process
 - File Name: pre.hook
+- cwd: The template root
 
 Post: 
 - Runs: Right after the scaffold process.
 - File Name: post.hook
+- cwd: The destination root
 
 Both hooks should be located in the hooks directory and receive the a 
 JSON.stringified version of the template variables and their values as the first
